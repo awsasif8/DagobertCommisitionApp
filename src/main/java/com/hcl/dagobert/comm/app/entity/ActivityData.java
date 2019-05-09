@@ -19,7 +19,7 @@ public class ActivityData implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long productActivityId;
+	private Long product_activity_id;
 	
 	@Column(name="PARTY_ID")
 	private Long partyId;

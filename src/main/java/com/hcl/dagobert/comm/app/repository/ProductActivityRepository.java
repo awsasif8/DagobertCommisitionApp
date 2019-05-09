@@ -7,5 +7,9 @@ import com.hcl.dagobert.comm.app.entity.ProductActivity;
 
 @Repository
 public interface ProductActivityRepository extends JpaRepository<ProductActivity, Long> {
+	
+	
+	
+	
 
 }
