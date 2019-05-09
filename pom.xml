@@ -57,6 +57,12 @@
 		</dependency>
 		
 	</dependencies>
+	<distributionManagement>
+  <repository>
+    <id>nexus</id>
+    <url>http://13.233.206.57:8081/nexus/content/repositories/nexus</url>
+  </repository>
+</distributionManagement>
 
 	<build>
 		<plugins>
