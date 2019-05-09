@@ -18,23 +18,35 @@ public class ActivityServiceImpl implements ActivityService {
 	ActivityRepository activityDataRepository;
 
 	@Override
-	public List<PartyIdsDto> getPartyIdsList() {
+	public List<Long> getPartyIdsList() {
+		List<Long> partyIdsList = null ;
 		List<PartyIdsDto> response = new ArrayList<PartyIdsDto>();
 		try {
-			List<ActivityData> partyIdsList = activityDataRepository.findAll();
-			if (!partyIdsList.isEmpty()) {
-				partyIdsList.stream().forEach(partyEntity -> {
-					PartyIdsDto activityDto = new PartyIdsDto();
-					activityDto.setPartyId(partyEntity.getPartyId());
+//			List<ActivityData> partyIdsList = activityDataRepository.findAll();
+//			if (!partyIdsList.isEmpty()) {
+//				partyIdsList.stream().forEach(partyEntity -> {
+//					PartyIdsDto activityDto = new PartyIdsDto();
+//					activityDto.setPartyId(partyEntity.getPartyId());
+//
+//					response.add(activityDto);
+//				});
+//			}
+			
+			 partyIdsList = activityDataRepository.findDistinctByPartyId();
+//			if (!partyIdsList.isEmpty()) {
+//				partyIdsList.stream().forEach(partyEntity -> {
+//					PartyIdsDto activityDto = new PartyIdsDto();
+//					activityDto.setPartyId(partyEntity.getPartyId());
+//
+//					response.add(activityDto);
+//				});
+//			}
 
-					response.add(activityDto);
-				});
-			}
 
 		} catch (Exception e) {
 
 		}
-		return response;
+		return partyIdsList;
 	}
 
 	@Override

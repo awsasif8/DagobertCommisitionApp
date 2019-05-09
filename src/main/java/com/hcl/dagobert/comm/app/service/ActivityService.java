@@ -7,7 +7,7 @@ import com.hcl.dagobert.comm.app.dto.ProductCodeDto;
 
 public interface ActivityService {
 	
-	public List<PartyIdsDto> getPartyIdsList();
+	public List<Long> getPartyIdsList();
 	
 	public List<ProductCodeDto> getPartyIdDetails(Long partyId);
 	

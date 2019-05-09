@@ -20,65 +20,57 @@ import com.hcl.dagobert.comm.app.service.ActivityServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ActivityServiceImplTest {
-	
+
 	@InjectMocks
 	ActivityServiceImpl activityServiceImpl;
+
 	@Mock
 	ActivityRepository activityRepository;
-	
-	
+
 	@Test
 	public void testPartIdsLists() {
-		
-		List<ActivityData> activityDataLists=new ArrayList<ActivityData>();		
-		ActivityData activityData=new ActivityData();		
+
+		List<ActivityData> activityDataLists = new ArrayList<ActivityData>();
+		ActivityData activityData = new ActivityData();
 		activityData.setActivityCode(100L);
 		activityData.setPartyId(3000L);
 		activityData.setProductCode(200L);
 		activityDataLists.add(activityData);
-		
-		List<PartyIdsDto> partyIdDtoLists=new ArrayList<PartyIdsDto>();		
-		PartyIdsDto partyIdsDto=new PartyIdsDto();		
+
+		List<PartyIdsDto> partyIdDtoLists = new ArrayList<PartyIdsDto>();
+		PartyIdsDto partyIdsDto = new PartyIdsDto();
 		partyIdsDto.setPartyId(100L);
 		partyIdDtoLists.add(partyIdsDto);
-		
+
 		Mockito.when(activityRepository.findAll()).thenReturn(activityDataLists);
-		
-		List<PartyIdsDto> response=activityServiceImpl.getPartyIdsList();
-		
-		
-	   assertEquals(activityDataLists.size(), response.size());
-	
-		
-	
+
+		List<Long> response = activityServiceImpl.getPartyIdsList();
+
+		assertEquals(activityDataLists.size(), response.size());
+
 	}
-	
-	
+
 	@Test
 	public void testPartIdDetailsLists() {
-		
-		List<ActivityData> activityDataLists=new ArrayList<ActivityData>();		
-		ActivityData activityData=new ActivityData();		
+
+		List<ActivityData> activityDataLists = new ArrayList<ActivityData>();
+		ActivityData activityData = new ActivityData();
 		activityData.setActivityCode(100L);
 		activityData.setPartyId(3000L);
 		activityData.setProductCode(200L);
 		activityDataLists.add(activityData);
-		
-		List<ProductCodeDto> partyIdDtoLists=new ArrayList<ProductCodeDto>();		
-		ProductCodeDto partyIdsDto=new ProductCodeDto();		
+
+		List<ProductCodeDto> partyIdDtoLists = new ArrayList<ProductCodeDto>();
+		ProductCodeDto partyIdsDto = new ProductCodeDto();
 		partyIdsDto.setActivityCode(100L);
 		partyIdDtoLists.add(partyIdsDto);
-		
+
 		Mockito.when(activityRepository.findByPartyId(100L)).thenReturn(activityDataLists);
-		
-		List<ProductCodeDto> response=activityServiceImpl.getPartyIdDetails(100L);
-		
-		
-	   assertEquals(activityDataLists.size(), response.size());
-	
-		
-	
+
+		List<ProductCodeDto> response = activityServiceImpl.getPartyIdDetails(100L);
+
+		assertEquals(activityDataLists.size(), response.size());
+
 	}
-	
 
 }
