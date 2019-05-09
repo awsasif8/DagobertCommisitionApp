@@ -16,9 +16,12 @@ public class ActivityController {
 	ActivityService activityService;
 
 	@GetMapping("/getPartyIds")
-	public List<PartyIdsDto> getPartyCodes() {
+	public List<Long> getPartyCodes() {
 
-		List<PartyIdsDto> response = activityService.getPartyIdsList();
+//		List<PartyIdsDto> response = activityService.getPartyIdsList();
+//		return response;
+		
+		List<Long> response = activityService.getPartyIdsList();
 		return response;
 	}
 	
