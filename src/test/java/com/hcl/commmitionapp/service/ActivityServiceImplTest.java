@@ -13,6 +13,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.hcl.dagobert.comm.app.dto.PartyIdsDto;
+import com.hcl.dagobert.comm.app.dto.ProductCodeDto;
 import com.hcl.dagobert.comm.app.entity.ActivityData;
 import com.hcl.dagobert.comm.app.repository.ActivityRepository;
 import com.hcl.dagobert.comm.app.service.ActivityServiceImpl;
@@ -44,6 +45,33 @@ public class ActivityServiceImplTest {
 		Mockito.when(activityRepository.findAll()).thenReturn(activityDataLists);
 		
 		List<PartyIdsDto> response=activityServiceImpl.getPartyIdsList();
+		
+		
+	   assertEquals(activityDataLists.size(), response.size());
+	
+		
+	
+	}
+	
+	
+	@Test
+	public void testPartIdDetailsLists() {
+		
+		List<ActivityData> activityDataLists=new ArrayList<ActivityData>();		
+		ActivityData activityData=new ActivityData();		
+		activityData.setActivityCode(100L);
+		activityData.setPartyId(3000L);
+		activityData.setProductCode(200L);
+		activityDataLists.add(activityData);
+		
+		List<ProductCodeDto> partyIdDtoLists=new ArrayList<ProductCodeDto>();		
+		ProductCodeDto partyIdsDto=new ProductCodeDto();		
+		partyIdsDto.setActivityCode(100L);
+		partyIdDtoLists.add(partyIdsDto);
+		
+		Mockito.when(activityRepository.findByPartyId(100L)).thenReturn(activityDataLists);
+		
+		List<ProductCodeDto> response=activityServiceImpl.getPartyIdDetails(100L);
 		
 		
 	   assertEquals(activityDataLists.size(), response.size());
