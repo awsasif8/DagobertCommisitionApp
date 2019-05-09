@@ -29,26 +29,15 @@ public class ActivityCodeTests {
 		
 		
       List<ActivityDto> activitydtos=new ArrayList<>();
-			
-//     // ActivityDto dto=new 
-//				
-//		//Mockito.when(activityRepository.findByPartyIdAndProductCode(90125L, 1000L);
-//		
-//      //   for(ActivityData activityCode:activityCodes) {
-//            ActivityDto activity=new ActivityDto();
-//		    activity.setActivityCode(activityCode.getActivityCode());
-//		    activitydtos.add(activity);
-//         }
-//		
-//		//return activitydtos;
-//	}
-//		
+      
+      
+      
+      
+      
+      
 		
-		
-		
-		
-		
-		
+	}
+
 		
 		
 	}
@@ -57,5 +46,3 @@ public class ActivityCodeTests {
 	
 	
 	
-
-}
